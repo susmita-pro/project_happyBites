@@ -1,0 +1,216 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>HappyBites - Sign Up</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff4d6d,#ff7b54);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:420px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+h1{
+    text-align:center;
+    color:#ff5722;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+}
+
+.message{
+    text-align:center;
+    color:green;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.error{
+    text-align:center;
+    color:red;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+label{
+    font-weight:bold;
+    display:block;
+    margin-top:12px;
+    margin-bottom:5px;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+textarea{
+    resize:none;
+    height:80px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:25px;
+    border:none;
+    background:#ff5722;
+    color:white;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#e64a19;
+}
+
+.login{
+    text-align:center;
+    margin-top:20px;
+}
+
+.login a{
+    text-decoration:none;
+    color:#ff5722;
+    font-weight:bold;
+}
+
+.login a:hover{
+    text-decoration:underline;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🍔 HappyBites</h1>
+
+<p class="subtitle">Create Your Account</p>
+
+<%
+String message = (String) request.getAttribute("message");
+
+if(message != null){
+%>
+
+<p class="message">
+    <%= message %>
+</p>
+
+<%
+}
+%>
+
+<form action="RegisterServlet" method="post">
+
+<label>Full Name</label>
+
+<input type="text"
+       name="username"
+       placeholder="Enter your full name"
+       required>
+
+
+<label>Email ID</label>
+
+<input type="email"
+       name="email"
+       placeholder="Enter your email"
+       required>
+
+
+<label>Mobile Number</label>
+
+<input type="tel"
+       name="mobile"
+       placeholder="Enter your mobile number"
+       required>
+
+
+<label>Password</label>
+
+<input type="password"
+       name="password"
+       placeholder="Enter your password"
+       required>
+
+
+<label>Address</label>
+
+<textarea
+       name="address"
+       placeholder="Enter your address"
+       required></textarea>
+
+
+<label>Role</label>
+
+<select name="role" required>
+
+<option value="">-- Select Role --</option>
+
+<option value="Customer">Customer</option>
+
+<option value="Restaurant">Restaurant</option>
+
+<option value="Admin">Admin</option>
+
+<option value="Super Admin">Super Admin</option>
+
+</select>
+
+
+<button type="submit">
+    Sign Up
+</button>
+
+</form>
+
+
+<div class="login">
+
+Already have an account?
+
+<a href="login.jsp">Login</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
